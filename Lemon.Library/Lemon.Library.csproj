@@ -30,6 +30,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml">
+      <HintPath>..\packages\CSLA-WPF.4.5.30\lib\net45\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IdentityModel" />
@@ -48,14 +57,12 @@
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lemon.LanguageExtensions\Lemon.LanguageExtensions.csproj">
-      <Project>{01aa8c41-2092-4f9c-a9b7-618c4ac1d3ca}</Project>
-      <Name>Lemon.LanguageExtensions</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Lemon.Server.SQL\Lemon.Server.SQL.csproj">
-      <Project>{18a5dc94-fe6d-4e12-affa-cc0318421fc2}</Project>
-      <Name>Lemon.Server.SQL</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Module\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
