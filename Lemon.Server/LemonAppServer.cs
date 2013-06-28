@@ -28,7 +28,7 @@ namespace Lemon.Server
 
 //        public LemonAppServer()
 //        {
-//            WireUpCompositionMap();
+//            
 //        }
 
 //        private void WireUpCompositionMap()

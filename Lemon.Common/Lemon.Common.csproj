@@ -41,18 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ArrayUtil.cs" />
+    <Compile Include="Extensions\CustomException.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\IEnumerableExtensions.cs" />
+    <Compile Include="Extensions\IListExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions\TryExtensions.cs" />
+    <Compile Include="Extensions\Tuple.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lemon.LanguageExtensions\Lemon.LanguageExtensions.csproj">
-      <Project>{01aa8c41-2092-4f9c-a9b7-618c4ac1d3ca}</Project>
-      <Name>Lemon.LanguageExtensions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Cache\" />
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
