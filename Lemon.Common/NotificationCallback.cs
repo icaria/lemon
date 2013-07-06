@@ -1,7 +1,7 @@
 ﻿using System;
-using Archon.Rapid.ProtobufDataPortal;
+using Winterspring.Lemon.DataPortal;
 
-namespace inFlow.Common.Notification
+namespace Lemon.Common
 {
     public class NotificationCallback : INotificationCallback
     {

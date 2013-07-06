@@ -43,12 +43,19 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Extensions.Conventions">
+      <HintPath>..\packages\ninject.extensions.conventions.3.0.0.11\lib\net45-full\Ninject.Extensions.Conventions.dll</HintPath>
+    </Reference>
     <Reference Include="protobuf-net">
       <HintPath>..\packages\protobuf-net.2.0.0.640\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -58,6 +65,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cache\CacheManager.cs" />
+    <Compile Include="Cache\DTO\AccountCacheObject.cs" />
+    <Compile Include="Cache\Interface\IAccountCache.cs" />
+    <Compile Include="Cache\MockCache.cs" />
+    <Compile Include="Cache\Mock\MockAccountCache.cs" />
     <Compile Include="DataChangedEventArgs.cs" />
     <Compile Include="DataChangeOperation.cs" />
     <Compile Include="DataPortal\DataMapper.cs" />
@@ -69,12 +80,19 @@
     <Compile Include="DataPortal\UnpackagedDTO.cs" />
     <Compile Include="Interface\IDataMapping.cs" />
     <Compile Include="Interface\IDbContext.cs" />
+    <Compile Include="Interface\IEditableCache.cs" />
     <Compile Include="Interface\IEntityCache.cs" />
     <Compile Include="Interface\INotificationCallback.cs" />
     <Compile Include="Interface\INotificationService.cs" />
+    <Compile Include="Interface\IObjectWithId.cs" />
+    <Compile Include="Interface\IObjectWithTimestamp.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="MockCacheModule.cs" />
+    <Compile Include="NotificationCallback.cs" />
     <Compile Include="NotificationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLocator.cs" />
+    <Compile Include="TupleFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">

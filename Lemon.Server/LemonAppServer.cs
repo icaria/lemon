@@ -33,7 +33,7 @@ namespace Lemon.Server
             var kernel = new StandardKernel(new ServerModule());
             kernel.Bind<Func<INotificationService>>().ToMethod(context => () => context.Kernel.Get<INotificationService>());
 
-//            ServiceLocator.Initialize(kernel);
+            ServiceLocator.Initialize(kernel);
 //            _cacheManager = ServiceLocator.Get<CacheManager>();
 //            _notificationServiceFactory = ServiceLocator.Get<Func<INotificationService>>();
         }
