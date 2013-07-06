@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Winterspring.LanguageExtensions
+namespace Winterspring.Extensions
 {
     public static class GenericExtensions
     {

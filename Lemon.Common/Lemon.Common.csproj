@@ -30,8 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net">
+      <HintPath>..\packages\protobuf-net.2.0.0.640\lib\net40\protobuf-net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -44,19 +57,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Extensions\ArrayUtil.cs" />
-    <Compile Include="Extensions\CustomException.cs" />
-    <Compile Include="Extensions\DictionaryExtensions.cs" />
-    <Compile Include="Extensions\GenericExtensions.cs" />
-    <Compile Include="Extensions\IEnumerableExtensions.cs" />
-    <Compile Include="Extensions\IListExtensions.cs" />
+    <Compile Include="Cache\CacheManager.cs" />
+    <Compile Include="DataChangedEventArgs.cs" />
+    <Compile Include="DataChangeOperation.cs" />
+    <Compile Include="DataPortal\DataMapper.cs" />
+    <Compile Include="DataPortal\DataPortalMessageHeader.cs" />
+    <Compile Include="DataPortal\DataTransferObjectAttribute.cs" />
+    <Compile Include="DataPortal\DTOLibrary.cs" />
+    <Compile Include="DataPortal\PackagedDTO.cs" />
+    <Compile Include="DataPortal\SerializationType.cs" />
+    <Compile Include="DataPortal\UnpackagedDTO.cs" />
+    <Compile Include="Interface\IDataMapping.cs" />
     <Compile Include="Interface\IDbContext.cs" />
+    <Compile Include="Interface\IEntityCache.cs" />
+    <Compile Include="Interface\INotificationCallback.cs" />
+    <Compile Include="Interface\INotificationService.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="NotificationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Extensions\TryExtensions.cs" />
-    <Compile Include="Extensions\Tuple.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
+      <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
+      <Name>Winterspring.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,13 +5,10 @@ using System.Net.Sockets;
 using System.ServiceModel;
 using System.Configuration;
 using System.Threading.Tasks;
-using Winterspring.LanguageExtensions;
+using Winterspring.Extensions;
 using Winterspring.Lemon.Base;
-//using Lemon.DataPortal;
 using Ninject;
-//using Lemon.Common;
-//using Lemon.Common.Notification;
-//using Lemon.Server.SQL;
+using Lemon.Common;
 using log4net;
 using System.ServiceModel.Discovery;
 
@@ -19,27 +16,27 @@ namespace Lemon.Server
 {
     public class LemonAppServer
     {
-//        private ServiceHost _netService;
-//        private ServiceHost _notificationService;
-//        private ILog _log = LogManager.GetLogger("inFlow");
+        private ServiceHost _netService;
+        private ServiceHost _notificationService;
+        private ILog _log = LogManager.GetLogger("Lemon");
 
-//        private CacheManager _cacheManager;
+        private CacheManager _cacheManager;
 //        private Func<INotificationService> _notificationServiceFactory;
 
-//        public LemonAppServer()
-//        {
-//            
-//        }
+        public LemonAppServer()
+        {
+            WireUpCompositionMap();
+        }
 
-//        private void WireUpCompositionMap()
-//        {
-//            var kernel = new StandardKernel(new ServerModule());
-//            kernel.Bind<Func<INotificationService>>().ToMethod(context => () => context.Kernel.Get<INotificationService>());
+        private void WireUpCompositionMap()
+        {
+            var kernel = new StandardKernel(new ServerModule());
+            kernel.Bind<Func<INotificationService>>().ToMethod(context => () => context.Kernel.Get<INotificationService>());
 
 //            ServiceLocator.Initialize(kernel);
 //            _cacheManager = ServiceLocator.Get<CacheManager>();
 //            _notificationServiceFactory = ServiceLocator.Get<Func<INotificationService>>();
-//        }
+        }
 
 //        public void Start(string databaseProfile)
 //        {

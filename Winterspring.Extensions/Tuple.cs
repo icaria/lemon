@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Winterspring.LanguageExtensions
+namespace Winterspring.Extensions
 {
     //This is a poor man's Tuple for when we're using old versions of .NET
     public class CustomTuple

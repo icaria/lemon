@@ -1,7 +1,7 @@
 using System;
 using System.Runtime.Serialization;
 
-namespace Winterspring.Lemon.Base
+namespace Winterspring.Extensions
 {
     [Serializable]
     public class CustomException : Exception 

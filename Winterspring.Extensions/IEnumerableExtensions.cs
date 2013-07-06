@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
-namespace Winterspring.LanguageExtensions
+namespace Winterspring.Extensions
 {
     public static class IEnumerableExtensions
     {

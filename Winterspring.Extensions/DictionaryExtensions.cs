@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
-namespace Winterspring.LanguageExtensions
+namespace Winterspring.Extensions
 {
     public static class DictionaryExtensions
     {
