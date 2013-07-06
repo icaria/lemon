@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemon.Library.Test", "Lemon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemon.Server", "Lemon.Server\Lemon.Server.csproj", "{01DFCA92-6B43-407D-8D2A-55CCD1FEBC31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemon.Server.ConsoleHost", "Lemon.Server.ConsoleHost\Lemon.Server.ConsoleHost.csproj", "{A8C2D627-79E0-4940-B6CE-7020655280F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{01DFCA92-6B43-407D-8D2A-55CCD1FEBC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01DFCA92-6B43-407D-8D2A-55CCD1FEBC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01DFCA92-6B43-407D-8D2A-55CCD1FEBC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C2D627-79E0-4940-B6CE-7020655280F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C2D627-79E0-4940-B6CE-7020655280F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C2D627-79E0-4940-B6CE-7020655280F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C2D627-79E0-4940-B6CE-7020655280F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

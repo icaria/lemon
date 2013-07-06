@@ -11,7 +11,7 @@ namespace Lemon.Models
     {
         [Key]
         public int CategoryId { get; set; }
-        public List<Account> Account { get; set; }
+        public virtual ICollection<Account> Accounts { get; set; }
         public string Name { get; set; }
     }
 }

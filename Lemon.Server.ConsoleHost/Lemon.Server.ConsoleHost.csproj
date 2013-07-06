@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{42931EE0-B3D2-4302-A632-25CF687A6704}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{A8C2D627-79E0-4940-B6CE-7020655280F5}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lemon.Library</RootNamespace>
-    <AssemblyName>Lemon.Library</AssemblyName>
+    <RootNamespace>Lemon.Server.ConsoleHost</RootNamespace>
+    <AssemblyName>Lemon.Server.ConsoleHost</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,24 +32,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Csla">
-      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
-    </Reference>
-    <Reference Include="Csla.Xaml">
-      <HintPath>..\packages\CSLA-WPF.4.5.30\lib\net45\Csla.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Csla.XmlSerializers">
-      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
-    <Reference Include="System.IdentityModel" />
-    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,27 +50,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataContext.cs" />
-    <Compile Include="Mapping\AccountMap.cs" />
-    <Compile Include="Mapping\AccountTypeMap.cs" />
-    <Compile Include="Mapping\CategoryMap.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lemon.Library\Lemon.Library.csproj">
+      <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
+      <Name>Lemon.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Server\Lemon.Server.csproj">
+      <Project>{01dfca92-6b43-407d-8d2a-55ccd1febc31}</Project>
+      <Name>Lemon.Server</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
