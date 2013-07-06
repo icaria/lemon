@@ -52,6 +52,22 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="Base\CtrlBottomRibbon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Base\CtrlRibbon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Base\CtrlMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Base\CtrlSidePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -59,6 +75,18 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Base\CtrlBottomRibbon.xaml.cs">
+      <DependentUpon>CtrlBottomRibbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Base\CtrlRibbon.xaml.cs">
+      <DependentUpon>CtrlRibbon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Base\CtrlMenu.xaml.cs">
+      <DependentUpon>CtrlMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Base\CtrlSidePanel.xaml.cs">
+      <DependentUpon>CtrlSidePanel.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -92,6 +120,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

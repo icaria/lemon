@@ -1,8 +1,35 @@
 ﻿<Window x:Class="Lemon.Client.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:baseUI="clr-namespace:Lemon.Client.Base"
+        Title="MainWindow" Height="550" Width="900">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
         
+        <baseUI:CtrlMenu Grid.Row="0"></baseUI:CtrlMenu>
+        <baseUI:CtrlRibbon Grid.Row="1"></baseUI:CtrlRibbon>
+        
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            
+            <baseUI:CtrlSidePanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Height="auto"></baseUI:CtrlSidePanel>
+            
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                
+                <baseUI:CtrlBottomRibbon Grid.Row="1"></baseUI:CtrlBottomRibbon>
+            </Grid>
+            
+        </Grid>
     </Grid>
 </Window>
