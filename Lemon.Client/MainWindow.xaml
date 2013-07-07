@@ -2,23 +2,216 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:baseUI="clr-namespace:Lemon.Client.Base"
-        Title="MainWindow" Height="550" Width="900">
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:Behaviours="clr-namespace:MahApps.Metro.Behaviours;assembly=MahApps.Metro"
+        Title="MainWindow" Height="550" Width="900"
+        MouseLeftButtonDown="DragMoveWindow"
+        MouseMove="MouseMoveWindow"
+        >
+
+    <!-- Resources -->
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    
+    <!-- Makes window borderless -->
+    <i:Interaction.Behaviors>
+        <Behaviours:BorderlessWindowBehavior/>
+    </i:Interaction.Behaviors>
+
+	<!-- background colours -->
+    <Window.Background>
+        <LinearGradientBrush MappingMode="Absolute" StartPoint="0,0" EndPoint="0,150">
+            <GradientStop Color="#FFDEDEDE" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto" MinHeight="40"/>
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         
-        <baseUI:CtrlMenu Grid.Row="0"></baseUI:CtrlMenu>
-        <baseUI:CtrlRibbon Grid.Row="1"></baseUI:CtrlRibbon>
+        <!-- Header: where the program name and max/min/close buttons are, including navigation -->
+        <Grid Name="Header" Background="Transparent">
+
+			<!-- Style for hiding menus depending on what option is activated -->
+
+			<Grid.Resources>
+				 <Style TargetType="{x:Type WrapPanel}" BasedOn="{StaticResource ChromelessButtonStyle}" x:Key="DefaultButton">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Margin" Value="0,0,20,0" />
+                        <Setter Property="FontWeight" Value="Light" />
+                    </Style>
+			</Grid.Resources>
+
+			<!-- Default menu -->
+            <WrapPanel UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="30,9,0,0">
+                
+				<WrapPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ChromelessButtonStyle}" x:Key="DefaultButton">
+                        <Setter Property="FontSize" Value="21" />
+                        <Setter Property="Margin" Value="0,0,20,0" />
+                        <Setter Property="FontWeight" Value="Light" />
+                    </Style>
+                    
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButton}" x:Key="OpenFileOnly">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding MDI.Items.Count}" Value="0">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </WrapPanel.Resources>
+
+
+                <Button x:Name="ShowWelcome" Content="welcome" Style="{StaticResource DefaultButton}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button x:Name="ShowWorkingPaper" Content="working paper" Style="{StaticResource OpenFileOnly}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button x:Name="ShowFinancialStatement" Content="financial statement" Style="{StaticResource OpenFileOnly}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button x:Name="PrintDocument" Content="print" Style="{StaticResource OpenFileOnly}" />
+				<Button x:Name="ShowFileProperties" Content="file properties" Style="{StaticResource OpenFileOnly}" />
+            </WrapPanel>
+            
+			<!-- extended menu; hide based on binding properties -->
+
+			<WrapPanel UseLayoutRounding="False" HorizontalAlignment="Left" VerticalAlignment="Top" Orientation="Horizontal" Margin="35,40,0,0">
+			
+				<WrapPanel.Resources>
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource ChromelessButtonStyle}" x:Key="DefaultButton">
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Margin" Value="0,0,20,0" />
+                        <Setter Property="FontWeight" Value="Light" />
+                    </Style>
+                    
+                    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource DefaultButton}" x:Key="OpenFileOnly">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding MDI.Items.Count}" Value="0">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </WrapPanel.Resources>
+
+
+                <Button Content="welcome" Style="{StaticResource DefaultButton}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="working paper" Style="{StaticResource OpenFileOnly}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="financial statement" Style="{StaticResource OpenFileOnly}">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Content="print" Style="{StaticResource OpenFileOnly}" />
+			
+			</WrapPanel>
+			
+			<!-- setting and help button -->
+			<StackPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="10" Orientation="Horizontal">
+                <Button Content="SETTINGS" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <!-- do something after click settings here -->
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <TextBlock Margin="10,0">
+                    <Run Text="|" />
+                </TextBlock>
+                <Button Content="HELP" Style="{DynamicResource ChromelessButtonStyle}" FontSize="10.667" FontWeight="Bold" Margin="0,0,20,0">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="Click">
+                            <!-- do something after click help here -->
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Button>
+                <Button Click="ButtonMinimiseOnClick" Style="{DynamicResource ChromelessButtonStyle}" Content="0" FontFamily="Marlett" />
+                <Button Click="ButtonMaxRestoreOnClick" x:Name="MaxRestore" Style="{DynamicResource ChromelessButtonStyle}" Content="1" FontFamily="Marlett" />
+                <Button Click="TryClose" Style="{DynamicResource ChromelessButtonStyle}" Content="r" FontFamily="Marlett" />
+            </StackPanel>
+
+
+            <!-- the colored block on the left side
+            <Rectangle HorizontalAlignment="Left" Stroke="Black" Width="10" StrokeThickness="0" Margin="0,10,0,0">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource HighlightDarkColor}" />
+                </Rectangle.Fill>
+            </Rectangle> -->
+
+			<Border BorderBrush="{x:Null}" Width="15" HorizontalAlignment="Left" Margin="0,10,0,0">
+                <Border.Background>
+                    <SolidColorBrush Color="{DynamicResource HighlightDarkColor}" />
+                </Border.Background>		
+				<TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="LEMON" FontSize="8.5" Foreground="White">
+					<TextBlock.LayoutTransform>
+						<TransformGroup>
+							<ScaleTransform />
+							<SkewTransform />
+							<RotateTransform Angle="-90"/>	
+							<TranslateTransform />
+						</TransformGroup>
+					</TextBlock.LayoutTransform>
+				</TextBlock>
+			</Border>
+
+
+
+
+        </Grid>
         
-        <Grid Grid.Row="2">
+        
+        <!-- <baseUI:CtrlMenu Grid.Row="1"></baseUI:CtrlMenu>
+        <baseUI:CtrlRibbon Grid.Row="2"></baseUI:CtrlRibbon>  -->
+        
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             
+
             <baseUI:CtrlSidePanel Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="auto" Height="auto"></baseUI:CtrlSidePanel>
             
             <Grid Grid.Column="0">
@@ -26,7 +219,13 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                
+                 
+				<ContentControl x:Name="MDI" Margin="10,0" Grid.Row="0">
+					<TextBlock>
+						<Run Text="hello world"/>
+					</TextBlock>
+				</ContentControl>
+
                 <baseUI:CtrlBottomRibbon Grid.Row="1"></baseUI:CtrlBottomRibbon>
             </Grid>
             
