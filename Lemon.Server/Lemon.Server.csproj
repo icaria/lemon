@@ -65,6 +65,10 @@
       <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
       <Name>Lemon.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lemon.Server.Sql\Lemon.Server.Sql.csproj">
+      <Project>{4a18ad5f-da5f-44b2-a7cf-25b4150d8e4d}</Project>
+      <Name>Lemon.Server.Sql</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
       <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
       <Name>Winterspring.Extensions</Name>

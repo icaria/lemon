@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConnectionMonitor.cs" />
+    <Compile Include="DataPortal\AuthorizeDataPortal.cs" />
     <Compile Include="WinterspringConnectionManager.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataPortal\Initializer.cs" />

@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto">
+      <HintPath>..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
     <Reference Include="Csla">
       <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
     </Reference>
@@ -65,6 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\AddressStruct.cs" />
+    <Compile Include="Base\Base32.cs" />
+    <Compile Include="Base\BasicEncryption.cs" />
+    <Compile Include="Base\InstallOption.cs" />
     <Compile Include="Base\StringUtil.cs" />
     <Compile Include="Cache\CacheManager.cs" />
     <Compile Include="Cache\DTO\AccountCacheObject.cs" />

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Configuration;
 using System.Threading;
 using System.Threading.Tasks;
+using Lemon.Base;
 using Winterspring.DataPortal;
 using Winterspring.Extensions;
 using Winterspring.Base;
@@ -24,9 +25,6 @@ namespace Lemon.Server
 
         private CacheManager _cacheManager;
         private Func<INotificationService> _notificationServiceFactory;
-
-        private TcpListener tcpListener;
-        private Thread listenThread;
 
         public LemonAppServer()
         {
@@ -124,7 +122,7 @@ namespace Lemon.Server
         {
             Initializer.Initialize();
 
-            //ServerConnectionTarget.Initialize(new ServerConnectionTarget(databaseProfile));
+            ServerConnectionTarget.Initialize(new ServerConnectionTarget(databaseProfile));
         }
 
         private async Task PostInitializeAsync()
