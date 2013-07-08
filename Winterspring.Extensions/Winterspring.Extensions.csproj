@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayUtil.cs" />
-    <Compile Include="CustomException.cs" />
+    <Compile Include="ChildChangedEventArgsExtensions.cs" />
     <Compile Include="DictionaryExtensions.cs" />
     <Compile Include="GenericExtensions.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
@@ -51,6 +57,10 @@
     <Compile Include="TryExtensions.cs" />
     <Compile Include="Tuple.cs" />
     <Compile Include="WcfExtensions.cs" />
+    <Compile Include="WinterspringCustomException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

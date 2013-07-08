@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Lemon.Models
+namespace Lemon.Modules
 {
-    public class Account
+    public partial class Account
     {
         [Key]
         // primary account key

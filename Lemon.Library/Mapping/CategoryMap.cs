@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Lemon.Models;
+using Lemon.Modules;
 
 namespace Lemon.Mapping
 {

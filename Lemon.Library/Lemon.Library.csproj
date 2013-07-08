@@ -66,6 +66,9 @@
   <ItemGroup>
     <Compile Include="ConnectionMonitor.cs" />
     <Compile Include="DataPortal\AuthorizeDataPortal.cs" />
+    <Compile Include="Modules\autogen\Account.partial.cs" />
+    <Compile Include="Modules\autogen\GenAccount.cs" />
+    <Compile Include="Validation\CommonRules.cs" />
     <Compile Include="WinterspringConnectionManager.cs" />
     <Compile Include="DataContext.cs" />
     <Compile Include="DataPortal\Initializer.cs" />
@@ -74,9 +77,9 @@
     <Compile Include="Mapping\AccountTypeMap.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\AccountType.cs" />
+    <Compile Include="Modules\hand\Account.cs" />
+    <Compile Include="Modules\hand\Category.cs" />
+    <Compile Include="Modules\hand\AccountType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

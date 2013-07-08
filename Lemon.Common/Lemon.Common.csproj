@@ -60,6 +60,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -73,10 +74,17 @@
     <Compile Include="Base\InstallOption.cs" />
     <Compile Include="Base\StringUtil.cs" />
     <Compile Include="Cache\CacheManager.cs" />
-    <Compile Include="Cache\DTO\AccountCacheObject.cs" />
+    <Compile Include="Cache\DataTransferObject\AccountCacheObject.cs" />
     <Compile Include="Cache\Interface\IAccountCache.cs" />
     <Compile Include="Cache\MockCache.cs" />
     <Compile Include="Cache\Mock\MockAccountCache.cs" />
+    <Compile Include="CSLA\ChangingPropertyInfo.cs" />
+    <Compile Include="CSLA\CommonRules.cs" />
+    <Compile Include="CSLA\CslaMetadata.cs" />
+    <Compile Include="CSLA\PropertyChangedActionManager.cs" />
+    <Compile Include="CSLA\WinterspringBusinessListBase.cs" />
+    <Compile Include="CSLA\ISnapshot.cs" />
+    <Compile Include="CSLA\WinterspringBusinessBase.cs" />
     <Compile Include="CSLA\PropertyChangedActionMode.cs" />
     <Compile Include="Cache\DataChangedEventArgs.cs" />
     <Compile Include="Cache\DataChangeOperation.cs" />
@@ -87,6 +95,9 @@
     <Compile Include="DataPortal\PackagedDataTransferObject.cs" />
     <Compile Include="DataPortal\SerializationType.cs" />
     <Compile Include="DataPortal\UnpackagedDataTransferObject.cs" />
+    <Compile Include="Interface\ISqlErrorNumberParser.cs" />
+    <Compile Include="Interface\ITrackIsDisposable.cs" />
+    <Compile Include="Interface\IWinterspringBusinessListBase.cs" />
     <Compile Include="Interface\IControlPropertyChangedActionMode.cs" />
     <Compile Include="Interface\IWinterspringBusinessBase.cs" />
     <Compile Include="Interface\IDataMapping.cs" />
@@ -104,6 +115,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceLocator.cs" />
     <Compile Include="Base\TupleFormatter.cs" />
+    <Compile Include="SQL\NullableDataReader.cs" />
+    <Compile Include="SQL\ServerReturnedError.cs" />
+    <Compile Include="SQL\ServerReturnedException.cs" />
+    <Compile Include="SQL\SqlErrorParser.cs" />
+    <Compile Include="Util.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
@@ -111,7 +127,6 @@
       <Name>Winterspring.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -13,11 +13,11 @@ namespace Lemon.Server.ConsoleHost
     {
         static void Main(string[] args)
         {
-            //Database.SetInitializer<DataContext>(new DropCreateDatabaseAlways<DataContext>());
-            //using (var db = new DataContext())
-            //{
-            //    db.Database.Initialize(false);
-            //}
+            Database.SetInitializer<DataContext>(new DropCreateDatabaseAlways<DataContext>());
+            using (var db = new DataContext())
+            {
+                db.Database.Initialize(false);
+            }
 
             XmlConfigurator.Configure();
 

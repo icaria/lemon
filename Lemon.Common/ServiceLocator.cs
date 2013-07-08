@@ -19,10 +19,6 @@ namespace Lemon.Common
         private static IKernel GetMockKernel()
         {
             return new StandardKernel(new MockCacheModule());
-
-            //var kernel = new StandardKernel();
-            //kernel.Bind(scan => scan.From("Rapid.WinClient").SelectAllClasses().InheritedFrom<IEntityCache>().BindAllInterfaces().Configure(x => x.InSingletonScope()));
-            //return kernel;
         }
 
         private static IKernel Kernel 

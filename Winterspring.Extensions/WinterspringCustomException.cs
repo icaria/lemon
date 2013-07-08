@@ -4,17 +4,17 @@ using System.Runtime.Serialization;
 namespace Winterspring.Extensions
 {
     [Serializable]
-    public class CustomException : Exception 
+    public class WinterspringCustomException : Exception 
     {
-        public CustomException() 
+        public WinterspringCustomException() 
         {
             Title = "";
         }
 
-        public CustomException(string message) : base(message) { }
-        public CustomException(string message, Exception innerException) : base(message, innerException) { }
+        public WinterspringCustomException(string message) : base(message) { }
+        public WinterspringCustomException(string message, Exception innerException) : base(message, innerException) { }
         
-        public CustomException(string message, string title) : base(message) 
+        public WinterspringCustomException(string message, string title) : base(message) 
         {
             Title = title;
         }
@@ -31,7 +31,7 @@ namespace Winterspring.Extensions
             }
         }
 
-        protected CustomException(SerializationInfo info, StreamingContext context)
+        protected WinterspringCustomException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
             if (info != null)

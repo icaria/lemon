@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Lemon.Models
+namespace Lemon.Modules
 {
     public class AccountType
     {
