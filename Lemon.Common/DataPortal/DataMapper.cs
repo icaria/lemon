@@ -5,9 +5,8 @@ using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Reflection;
 using Lemon.Common;
-using ProtoBuf.Meta;
 
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
     public class DataMapper
     {
@@ -66,7 +65,7 @@ namespace Winterspring.Lemon.DataPortal
 
             try
             {
-                if (DTOLibrary.IsDictionary(type))
+                if (DataTransferObjectLibrary.IsDictionary(type))
                 {
                     return CreateMappedDictionary(obj, type);
                 }
@@ -97,14 +96,14 @@ namespace Winterspring.Lemon.DataPortal
         public Type MappedType(Type t)
         {
             return t == null ? null
-                : DTOLibrary.IsDictionary(t) ? GetMappedDictionaryType(t)
+                : DataTransferObjectLibrary.IsDictionary(t) ? GetMappedDictionaryType(t)
                 : _translateType.ContainsKey(t) ? _translateType[t]
                 : null;
         }
 
         private Type GetMappedDictionaryType(Type t)
         {
-            if (!DTOLibrary.IsDictionary(t)) return t;
+            if (!DataTransferObjectLibrary.IsDictionary(t)) return t;
             var types = t.GetGenericArguments();
             var t1 = MappedType(types[0]);
             var t2 = MappedType(types[1]);

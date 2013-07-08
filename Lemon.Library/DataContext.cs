@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Web;
 using Winterspring.Interface;
 
-namespace Winterspring.Lemon.Base
+namespace Winterspring.Base
 {
     public class DataContext : DbContext, IDbContext
     {

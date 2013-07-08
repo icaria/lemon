@@ -1,11 +1,11 @@
 ﻿using System.ServiceModel;
-using Winterspring.Lemon.DataPortal;
+using Winterspring.DataPortal;
 
 namespace Lemon.Common
 {
     public interface INotificationCallback
     {
         [OperationContract(IsOneWay = true)]
-        void NotifyClient(string topic, PackagedDTO dto);
+        void NotifyClient(string topic, PackagedDataTransferObject dataTransferObject);
     }
 }

@@ -1,4 +1,4 @@
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
     public enum SerializationType
     {

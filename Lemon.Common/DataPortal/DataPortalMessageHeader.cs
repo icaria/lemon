@@ -1,6 +1,6 @@
 ﻿using ProtoBuf;
 
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
     [ProtoContract]
     public class DataPortalMessageHeader

@@ -1,14 +1,14 @@
 ﻿using System.ServiceModel;
-using Winterspring.Lemon.DataPortal;
+using Winterspring.DataPortal;
 
 namespace Lemon.Common
 {
-    [ServiceContract(CallbackContract = (typeof(INotificationCallback)), Namespace = "http://inFlow")]
+    [ServiceContract(CallbackContract = (typeof(INotificationCallback)), Namespace = "http://Lemon")]
     public interface INotificationService : ISubscriptionService, IPublishService
     {        
     }
 
-    [ServiceContract(CallbackContract = (typeof(INotificationCallback)), Namespace="http://inFlow")]
+    [ServiceContract(CallbackContract = (typeof(INotificationCallback)), Namespace="http://Lemon")]
     public interface ISubscriptionService
     {
         [OperationContract(IsOneWay = true)]
@@ -22,6 +22,6 @@ namespace Lemon.Common
     public interface IPublishService
     {
         [OperationContract(IsOneWay = true)]
-        void BroadcastAsync(string topic, PackagedDTO dto);
+        void BroadcastAsync(string topic, PackagedDataTransferObject dataTransferObject);
     }
 }

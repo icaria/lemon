@@ -1,4 +1,4 @@
-using Winterspring.Lemon.Base;
+using Winterspring.Base;
 
 namespace Lemon.Library.Migrations
 {
@@ -7,14 +7,14 @@ namespace Lemon.Library.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Winterspring.Lemon.Base.DataContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Winterspring.Base.DataContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Winterspring.Lemon.Base.DataContext context)
+        protected override void Seed(Winterspring.Base.DataContext context)
         {
             //  This method will be called after migrating to the latest version.
 

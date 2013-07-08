@@ -1,6 +1,6 @@
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
-    public class UnpackagedDTO
+    public class UnpackagedDataTransferObject
     {
         public DataPortalMessageHeader Header { get; set; }
         public object Body { get; set; }

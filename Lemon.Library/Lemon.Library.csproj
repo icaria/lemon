@@ -42,10 +42,19 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.640, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\protobuf-net.2.0.0.640\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
@@ -55,7 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConnectionMonitor.cs" />
+    <Compile Include="WinterspringConnectionManager.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="DataPortal\Initializer.cs" />
+    <Compile Include="DataPortal\WcfService.cs" />
     <Compile Include="Mapping\AccountMap.cs" />
     <Compile Include="Mapping\AccountTypeMap.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
@@ -70,12 +83,18 @@
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
+      <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
+      <Name>Winterspring.Extensions</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

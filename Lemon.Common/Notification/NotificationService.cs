@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
 using Winterspring.Extensions;
-using Winterspring.Lemon.DataPortal;
+using Winterspring.DataPortal;
 
 namespace Lemon.Common
 {
@@ -40,7 +40,7 @@ namespace Lemon.Common
             }
         }
 
-        public void BroadcastAsync(string topic, PackagedDTO dto)
+        public void BroadcastAsync(string topic, PackagedDataTransferObject dataTransferObject)
         {
             //Let's just always use lower case to make it easier
             topic = topic.ToLower();
@@ -52,7 +52,7 @@ namespace Lemon.Common
 
                 foreach (var client in _subscriberMap[topic])
                 {                    
-                    client.NotifyClient(topic, dto);
+                    client.NotifyClient(topic, dataTransferObject);
                 }
             }
         }

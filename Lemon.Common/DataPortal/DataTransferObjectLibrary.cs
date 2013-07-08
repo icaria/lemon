@@ -8,9 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
-    public static class DTOLibrary
+    public static class DataTransferObjectLibrary
     {
         public static bool IsPrimitive(Type t)
         {

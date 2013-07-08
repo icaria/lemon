@@ -6,10 +6,10 @@ using System.Runtime.Serialization.Formatters.Binary;
 using Csla;
 using ProtoBuf;
 
-namespace Winterspring.Lemon.DataPortal
+namespace Winterspring.DataPortal
 {
     [Serializable]
-    public class PackagedDTO
+    public class PackagedDataTransferObject
     {
         private byte[] _h;  //Having a short field name makes the serialized version of this smaller.
         public byte[] Header { get { return _h; } private set { _h = value; } }
@@ -21,15 +21,15 @@ namespace Winterspring.Lemon.DataPortal
             internal set { _m = value; }
         }
 
-        public static PackagedDTO PackageBO(object o)
+        public static PackagedDataTransferObject PackageBO(object o)
         {
             var isDto = o.GetType().GetCustomAttributes(typeof(DataTransferObjectAttribute), false).Length > 0;
             return PackageDTO(isDto ? o : DataMapper.Instance.Map(o));
         }
 
-        public static PackagedDTO PackageDTO(object o)
+        public static PackagedDataTransferObject PackageDTO(object o)
         {
-            var m = new PackagedDTO();
+            var m = new PackagedDataTransferObject();
             using (var ms = new MemoryStream())
             {
                 var dataPortalMessageHeader = new DataPortalMessageHeader { SerializationType = SerializationType.ProtoBuf, Type = o.GetType().AssemblyQualifiedName, AuthenticationToken = ApplicationContext.ClientContext["AuthenticationToken"] as string };
@@ -54,9 +54,9 @@ namespace Winterspring.Lemon.DataPortal
             return m;
         }
 
-        public static PackagedDTO PackageServerException(Exception ex)
+        public static PackagedDataTransferObject PackageServerException(Exception ex)
         {
-            var m = new PackagedDTO();
+            var m = new PackagedDataTransferObject();
 
             using (var ms = new MemoryStream())
             {
@@ -75,7 +75,7 @@ namespace Winterspring.Lemon.DataPortal
             return m;
         }
 
-        public UnpackagedDTO UnpackageDTO()
+        public UnpackagedDataTransferObject UnpackageDataTransferObject()
         {
             DataPortalMessageHeader header;
             object body;
@@ -105,7 +105,7 @@ namespace Winterspring.Lemon.DataPortal
                     body = formatter.Deserialize(ms);
                 }
             }
-            return new UnpackagedDTO { Body = body, Header = header };
+            return new UnpackagedDataTransferObject { Body = body, Header = header };
         }
 
     }

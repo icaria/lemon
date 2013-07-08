@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Winterspring.Lemon.Base;
+using Winterspring.Base;
 using log4net.Config;
 
 namespace Lemon.Server.ConsoleHost
@@ -22,19 +22,20 @@ namespace Lemon.Server.ConsoleHost
             XmlConfigurator.Configure();
 
             var service = new Lemon.Server.LemonAppServer();
-            //service.Start("inFlow");
-            //Console.WriteLine("Service started");
-            //Console.WriteLine();
+            service.Start();
+            service.Connect("Lemon");
+            Console.WriteLine("Service started");
+            Console.WriteLine();
 
-            //Console.WriteLine("Press <return> to close service");
-            //Console.ReadLine();
-            //service.Stop();
+            Console.WriteLine("Press <return> to close service");
+            Console.ReadLine();
+            service.Stop();
 
-            //Console.WriteLine();
-            //Console.WriteLine("Service stopped");
-            //Console.WriteLine();
-            //Console.WriteLine("Press <return> to exit");
-            //Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("Service stopped");
+            Console.WriteLine();
+            Console.WriteLine("Press <return> to exit");
+            Console.ReadLine();
 
         }
     }
