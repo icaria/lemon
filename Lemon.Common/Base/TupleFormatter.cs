@@ -1,6 +1,6 @@
 using System;
 
-namespace Lemon.Base
+namespace Lemon.Common
 {
     public static class TupleFormatter
     {

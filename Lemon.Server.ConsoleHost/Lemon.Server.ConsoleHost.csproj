@@ -66,6 +66,10 @@
       <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
       <Name>Lemon.Library</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lemon.Server\Lemon.Server.csproj">
+      <Project>{01dfca92-6b43-407d-8d2a-55ccd1febc31}</Project>
+      <Name>Lemon.Server</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
