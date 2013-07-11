@@ -1,4 +1,5 @@
 ﻿using System.Data.Linq.Mapping;
+using Lemon.Base;
 using ProtoBuf;
 
 namespace Lemon.Common

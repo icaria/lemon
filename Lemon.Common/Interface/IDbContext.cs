@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Winterspring.Interface
+namespace Lemon.Common
 {
     public interface IDbContext
     {

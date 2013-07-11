@@ -5,7 +5,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
 using System.Web;
-using Winterspring.Interface;
+using Lemon.Common;
 
 namespace Winterspring.Base
 {

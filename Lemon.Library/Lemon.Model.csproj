@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A8C2D627-79E0-4940-B6CE-7020655280F5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{42931EE0-B3D2-4302-A632-25CF687A6704}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Lemon.Server.ConsoleHost</RootNamespace>
-    <AssemblyName>Lemon.Server.ConsoleHost</AssemblyName>
+    <RootNamespace>Lemon</RootNamespace>
+    <AssemblyName>Lemon.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -32,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csla, Version=4.5.30.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers, Version=4.5.30.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -43,6 +49,9 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,22 +59,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Validation\CommonRules.cs" />
+    <Compile Include="DataContext.cs" />
+    <Compile Include="Mapping\AccountMap.cs" />
+    <Compile Include="Mapping\AccountTypeMap.cs" />
+    <Compile Include="Mapping\CategoryMap.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Modules\Account.cs" />
+    <Compile Include="Modules\Category.cs" />
+    <Compile Include="Modules\AccountType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Lemon.Library\Lemon.Library.csproj">
-      <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
-      <Name>Lemon.Library</Name>
+    <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
+      <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
+      <Name>Winterspring.Extensions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
