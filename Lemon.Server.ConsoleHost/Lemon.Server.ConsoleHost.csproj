@@ -58,6 +58,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lemon.Base\Lemon.Base.csproj">
+      <Project>{5b3b4848-2a8b-4e80-bba9-65d416132421}</Project>
+      <Name>Lemon.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
@@ -65,6 +69,10 @@
     <ProjectReference Include="..\Lemon.Library\Lemon.Library.csproj">
       <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
       <Name>Lemon.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Model\Lemon.Model.csproj">
+      <Project>{eb14ec2e-5f57-4084-93ff-ef9f4c79d963}</Project>
+      <Name>Lemon.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Lemon.Server\Lemon.Server.csproj">
       <Project>{01dfca92-6b43-407d-8d2a-55ccd1febc31}</Project>

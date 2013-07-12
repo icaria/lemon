@@ -39,9 +39,6 @@
     <Reference Include="Csla.XmlSerializers">
       <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
@@ -64,28 +61,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionMonitor.cs" />
     <Compile Include="DataPortal\AuthorizeDataPortal.cs" />
-    <Compile Include="Modules\autogen\Account.partial.cs" />
-    <Compile Include="Modules\autogen\GenAccount.cs" />
-    <Compile Include="Validation\CommonRules.cs" />
-    <Compile Include="WinterspringConnectionManager.cs" />
-    <Compile Include="DataContext.cs" />
     <Compile Include="DataPortal\Initializer.cs" />
+    <Compile Include="DataPortal\IWcfService.cs" />
+    <Compile Include="DataPortal\WcfExtensions.cs" />
     <Compile Include="DataPortal\WcfService.cs" />
-    <Compile Include="Mapping\AccountMap.cs" />
-    <Compile Include="Mapping\AccountTypeMap.cs" />
-    <Compile Include="Mapping\CategoryMap.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Modules\hand\Account.cs" />
-    <Compile Include="Modules\hand\Category.cs" />
-    <Compile Include="Modules\hand\AccountType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Model\Lemon.Model.csproj">
+      <Project>{eb14ec2e-5f57-4084-93ff-ef9f4c79d963}</Project>
+      <Name>Lemon.Model</Name>
     </ProjectReference>
     <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
       <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
@@ -95,9 +85,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

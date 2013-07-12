@@ -4,7 +4,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Winterspring.Base;
+using Lemon.Base;
 using log4net.Config;
 
 namespace Lemon.Server.ConsoleHost

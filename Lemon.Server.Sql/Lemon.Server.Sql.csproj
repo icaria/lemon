@@ -51,6 +51,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lemon.Base\Lemon.Base.csproj">
+      <Project>{5b3b4848-2a8b-4e80-bba9-65d416132421}</Project>
+      <Name>Lemon.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
       <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
       <Name>Lemon.Common</Name>
