@@ -10,7 +10,7 @@ using Csla.Rules;
 //September 18, 2011 snapshot of CslaContrib
 //and modified to use some built-in error messages
 
-namespace Lemon.CommonRules
+namespace Lemon.Common
 {
     #region Base class for Common Business Rules
 

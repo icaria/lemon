@@ -6,6 +6,6 @@ namespace Lemon.Common
     public interface INotificationCallback
     {
         [OperationContract(IsOneWay = true)]
-        void NotifyClient(string topic, PackagedDataTransferObject dataTransferObject);
+        void NotifyClient(string topic, PackagedDTO dto);
     }
 }

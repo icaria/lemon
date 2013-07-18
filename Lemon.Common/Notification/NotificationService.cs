@@ -40,7 +40,7 @@ namespace Lemon.Common
             }
         }
 
-        public void BroadcastAsync(string topic, PackagedDataTransferObject dataTransferObject)
+        public void BroadcastAsync(string topic, PackagedDTO dto)
         {
             //Let's just always use lower case to make it easier
             topic = topic.ToLower();
@@ -52,7 +52,7 @@ namespace Lemon.Common
 
                 foreach (var client in _subscriberMap[topic])
                 {                    
-                    client.NotifyClient(topic, dataTransferObject);
+                    client.NotifyClient(topic, dto);
                 }
             }
         }

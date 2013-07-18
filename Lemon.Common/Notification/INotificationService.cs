@@ -22,6 +22,6 @@ namespace Lemon.Common
     public interface IPublishService
     {
         [OperationContract(IsOneWay = true)]
-        void BroadcastAsync(string topic, PackagedDataTransferObject dataTransferObject);
+        void BroadcastAsync(string topic, PackagedDTO dto);
     }
 }

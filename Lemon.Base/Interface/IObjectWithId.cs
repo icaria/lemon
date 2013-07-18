@@ -1,4 +1,4 @@
-namespace Lemon.Common
+namespace Lemon.Base
 {
     public interface IObjectWithId
     {

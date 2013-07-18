@@ -34,8 +34,20 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml">
+      <HintPath>..\packages\CSLA-WPF.4.5.30\lib\net45\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers">
+      <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -94,6 +106,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModulesCode\Cache\AccountCache.cs" />
+    <Compile Include="ModulesCode\Cache\AccountCache.partial.cs" />
+    <Compile Include="ModulesCode\Cache\ClientEntityCache.cs" />
+    <Compile Include="ModulesCode\Notification\NotificationMonitor.cs" />
+    <Compile Include="ModulesCode\Notification\NotificationServiceProxy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -111,6 +128,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,7 +138,28 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Lemon.Base\Lemon.Base.csproj">
+      <Project>{5b3b4848-2a8b-4e80-bba9-65d416132421}</Project>
+      <Name>Lemon.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
+      <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
+      <Name>Lemon.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Library\Lemon.Library.csproj">
+      <Project>{42931ee0-b3d2-4302-a632-25cf687a6704}</Project>
+      <Name>Lemon.Library</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lemon.Model\Lemon.Model.csproj">
+      <Project>{eb14ec2e-5f57-4084-93ff-ef9f4c79d963}</Project>
+      <Name>Lemon.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
+      <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
+      <Name>Winterspring.Extensions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

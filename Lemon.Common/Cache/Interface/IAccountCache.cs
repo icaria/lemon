@@ -1,6 +1,6 @@
 ﻿namespace Lemon.Common
 {
-    public interface IAccountCache : IEntityCache<AccountCacheObject>, IEditableCache<AccountCacheObject>
+    public partial interface IAccountCache
     {
     }
 }

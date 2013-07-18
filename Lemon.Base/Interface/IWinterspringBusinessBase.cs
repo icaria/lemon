@@ -11,7 +11,7 @@ namespace Lemon.Base
     {
         //Return a list of all the broken validation rules.
         //Implementations shouldn't throw exceptions.
-        //List<BrokenRule> GetFullBrokenRules();
+        List<BrokenRule> GetFullBrokenRules();
 
         //Return true if the current user is authorized to add an object.
         //Implementations shouldn't throw exceptions.

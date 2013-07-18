@@ -15,9 +15,9 @@ namespace Winterspring.DataPortal
             return new DataPortalContext(new UnauthenticatedPrincipal(), true, "en-US", "en-US", new Csla.Core.ContextDictionary { { "AuthenticationToken", authenticationToken } }, new Csla.Core.ContextDictionary());
         }
 
-        private async Task<PackagedDataTransferObject> FetchAsync(string fetchType, PackagedDataTransferObject fetchCriteria)
+        private async Task<PackagedDTO> FetchAsync(string fetchType, PackagedDTO fetchCriteria)
         {
-            var unpackagedMessage = fetchCriteria.UnpackageDataTransferObject();
+            var unpackagedMessage = fetchCriteria.UnpackageDTO();
             var portal = new Csla.Server.DataPortal();
             try
             {                
@@ -25,77 +25,77 @@ namespace Winterspring.DataPortal
                 var result = await portal.Fetch(type, unpackagedMessage.Body, GetDataPortalContext(unpackagedMessage.Header.AuthenticationToken), false);
 
                 return type.GetCustomAttributes(typeof(DataTransferObjectAttribute), false).Length > 0 ?
-                    PackagedDataTransferObject.PackageDTO(result.ReturnObject) : PackagedDataTransferObject.PackageBO(result.ReturnObject);
+                    PackagedDTO.PackageDTO(result.ReturnObject) : PackagedDTO.PackageBO(result.ReturnObject);
             }
             catch (Exception ex)
             {
-                return PackagedDataTransferObject.PackageServerException(ex);                
+                return PackagedDTO.PackageServerException(ex);                
             }
         }
 
-        public async Task<PackagedDataTransferObject> UpdateAsync(PackagedDataTransferObject msg)
+        public async Task<PackagedDTO> UpdateAsync(PackagedDTO msg)
         {
             var portal = new Csla.Server.DataPortal();
-            var unpackagedDto = msg.UnpackageDataTransferObject();
+            var unpackagedDto = msg.UnpackageDTO();
             try
             {
                 var result = await portal.Update(unpackagedDto.UnpackageBO(), GetDataPortalContext(unpackagedDto.Header.AuthenticationToken), false);
 
                 var type = Type.GetType(unpackagedDto.Header.Type);
                 return type.GetCustomAttributes(typeof(DataTransferObjectAttribute), false).Length > 0 ?
-                    PackagedDataTransferObject.PackageDTO(result.ReturnObject) : PackagedDataTransferObject.PackageBO(result.ReturnObject);
+                    PackagedDTO.PackageDTO(result.ReturnObject) : PackagedDTO.PackageBO(result.ReturnObject);
             }
             catch (Exception ex)
             {
-                return PackagedDataTransferObject.PackageServerException(ex);
+                return PackagedDTO.PackageServerException(ex);
             }
         }
 
-        public async Task<PackagedDataTransferObject> DeleteAsync(string deleteType, PackagedDataTransferObject deleteCriteria)
+        public async Task<PackagedDTO> DeleteAsync(string deleteType, PackagedDTO deleteCriteria)
         {
-            var unpackagedDto = deleteCriteria.UnpackageDataTransferObject();
+            var unpackagedDto = deleteCriteria.UnpackageDTO();
             var portal = new Csla.Server.DataPortal();
             try
             {
                 var type = Type.GetType(deleteType);
                 var result = await portal.Delete(type, unpackagedDto.Body, GetDataPortalContext(unpackagedDto.Header.AuthenticationToken), false);
                 return type.GetCustomAttributes(typeof(DataTransferObjectAttribute), false).Length > 0 ?
-                    PackagedDataTransferObject.PackageDTO(result.ReturnObject) : PackagedDataTransferObject.PackageBO(result.ReturnObject);
+                    PackagedDTO.PackageDTO(result.ReturnObject) : PackagedDTO.PackageBO(result.ReturnObject);
             }
             catch (Exception ex)
             {
-                return PackagedDataTransferObject.PackageServerException(ex);
+                return PackagedDTO.PackageServerException(ex);
             }
         }
 
-        public IAsyncResult BeginFetch(string fetchType, PackagedDataTransferObject fetchCriteria, AsyncCallback callback, object state)
+        public IAsyncResult BeginFetch(string fetchType, PackagedDTO fetchCriteria, AsyncCallback callback, object state)
         {            
             return FetchAsync(fetchType, fetchCriteria).ToBegin(callback, state);                        
         }
 
-        public PackagedDataTransferObject EndFetch(IAsyncResult asyncResult)
+        public PackagedDTO EndFetch(IAsyncResult asyncResult)
         {
-            return asyncResult.ToEnd<PackagedDataTransferObject>();
+            return asyncResult.ToEnd<PackagedDTO>();
         }
 
-        public IAsyncResult BeginUpdate(PackagedDataTransferObject msg, AsyncCallback callback, object state)
+        public IAsyncResult BeginUpdate(PackagedDTO msg, AsyncCallback callback, object state)
         {
             return UpdateAsync(msg).ToBegin(callback, state);
         }
 
-        public PackagedDataTransferObject EndUpdate(IAsyncResult asyncResult)
+        public PackagedDTO EndUpdate(IAsyncResult asyncResult)
         {
-            return asyncResult.ToEnd<PackagedDataTransferObject>();
+            return asyncResult.ToEnd<PackagedDTO>();
         }
 
-        public IAsyncResult BeginDelete(string deleteType, PackagedDataTransferObject deleteCriteria, AsyncCallback callback, object state)
+        public IAsyncResult BeginDelete(string deleteType, PackagedDTO deleteCriteria, AsyncCallback callback, object state)
         {
             return DeleteAsync(deleteType, deleteCriteria).ToBegin(callback, state);
         }
 
-        public PackagedDataTransferObject EndDelete(IAsyncResult asyncResult)
+        public PackagedDTO EndDelete(IAsyncResult asyncResult)
         {
-            return asyncResult.ToEnd<PackagedDataTransferObject>();
+            return asyncResult.ToEnd<PackagedDTO>();
         }
     }
 }

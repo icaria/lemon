@@ -50,6 +50,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
@@ -62,33 +63,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base32.cs" />
+    <Compile Include="BaseConstants.cs" />
     <Compile Include="BasicEncryption.cs" />
     <Compile Include="ConnectionMonitor.cs" />
     <Compile Include="CSLA\ChangingPropertyInfo.cs" />
     <Compile Include="CSLA\ChildChangedEventArgsExtensions.cs" />
     <Compile Include="CSLA\CommonRules.cs" />
     <Compile Include="CSLA\CslaMetadata.cs" />
+    <Compile Include="CSLA\DoActionDeactivator.cs" />
     <Compile Include="CSLA\ISnapshot.cs" />
     <Compile Include="CSLA\PropertyChangedActionManager.cs" />
     <Compile Include="CSLA\PropertyChangedActionMode.cs" />
     <Compile Include="CSLA\WinterspringBusinessBase.cs" />
     <Compile Include="CSLA\WinterspringBusinessListBase.cs" />
-    <Compile Include="Enum\AccountType.cs" />
     <Compile Include="Enum\InstallOption.cs" />
     <Compile Include="Interface\IControlPropertyChangedActionMode.cs" />
+    <Compile Include="Interface\IDisplayObject.cs" />
     <Compile Include="Interface\IObjectWithId.cs" />
     <Compile Include="Interface\IObjectWithTimestamp.cs" />
     <Compile Include="Interface\ISqlErrorNumberParser.cs" />
     <Compile Include="Interface\ITrackIsDisposable.cs" />
     <Compile Include="Interface\IWinterspringBusinessBase.cs" />
     <Compile Include="Interface\IWinterspringBusinessListBase.cs" />
+    <Compile Include="IWeakDelegate.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQL\NullableDataReader.cs" />
     <Compile Include="SQL\ServerReturnedError.cs" />
     <Compile Include="SQL\ServerReturnedException.cs" />
     <Compile Include="SQL\SqlErrorParser.cs" />
+    <Compile Include="TimedLock.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Validation\CommonRules.cs" />
+    <Compile Include="WeakDelegate.cs" />
+    <Compile Include="WeakDelegateWithSubscriber.cs" />
+    <Compile Include="WeakEvent.cs" />
     <Compile Include="WinterspringConnectionManager.cs" />
   </ItemGroup>
   <ItemGroup>

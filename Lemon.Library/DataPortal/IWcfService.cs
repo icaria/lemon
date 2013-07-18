@@ -9,15 +9,15 @@ namespace Lemon.Common
     public interface IWcfService
     {
         [OperationContract(AsyncPattern=true)]                
-        IAsyncResult BeginFetch(string fetchType, PackagedDataTransferObject fetchCriteria, AsyncCallback callback, object state);
-        PackagedDataTransferObject EndFetch(IAsyncResult asyncResult);
+        IAsyncResult BeginFetch(string fetchType, PackagedDTO fetchCriteria, AsyncCallback callback, object state);
+        PackagedDTO EndFetch(IAsyncResult asyncResult);
 
         [OperationContract(AsyncPattern=true)]
-        IAsyncResult BeginUpdate(PackagedDataTransferObject msg, AsyncCallback callback, object state);
-        PackagedDataTransferObject EndUpdate(IAsyncResult asyncResult);
+        IAsyncResult BeginUpdate(PackagedDTO msg, AsyncCallback callback, object state);
+        PackagedDTO EndUpdate(IAsyncResult asyncResult);
 
         [OperationContract(AsyncPattern = true)]
-        IAsyncResult BeginDelete(string deleteType, PackagedDataTransferObject deleteCriteria, AsyncCallback callback, object state);
-        PackagedDataTransferObject EndDelete(IAsyncResult asyncResult);
+        IAsyncResult BeginDelete(string deleteType, PackagedDTO deleteCriteria, AsyncCallback callback, object state);
+        PackagedDTO EndDelete(IAsyncResult asyncResult);
     }
 }

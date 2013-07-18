@@ -65,7 +65,7 @@ namespace Winterspring.DataPortal
 
             try
             {
-                if (DataTransferObjectLibrary.IsDictionary(type))
+                if (DTOLibrary.IsDictionary(type))
                 {
                     return CreateMappedDictionary(obj, type);
                 }
@@ -96,14 +96,14 @@ namespace Winterspring.DataPortal
         public Type MappedType(Type t)
         {
             return t == null ? null
-                : DataTransferObjectLibrary.IsDictionary(t) ? GetMappedDictionaryType(t)
+                : DTOLibrary.IsDictionary(t) ? GetMappedDictionaryType(t)
                 : _translateType.ContainsKey(t) ? _translateType[t]
                 : null;
         }
 
         private Type GetMappedDictionaryType(Type t)
         {
-            if (!DataTransferObjectLibrary.IsDictionary(t)) return t;
+            if (!DTOLibrary.IsDictionary(t)) return t;
             var types = t.GetGenericArguments();
             var t1 = MappedType(types[0]);
             var t2 = MappedType(types[1]);

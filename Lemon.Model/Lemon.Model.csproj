@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="Csla, Version=4.5.30.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
@@ -45,7 +48,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="protobuf-net, Version=2.0.0.640, Culture=neutral, PublicKeyToken=257b51d87d2e4d67, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\protobuf-net.2.0.0.640\lib\net40\protobuf-net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -58,32 +66,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\AccountList.cs" />
-    <Compile Include="Collections\AccountList.DataAccess.cs" />
-    <Compile Include="Collections\AccountList.Generated.cs" />
-    <Compile Include="Collections\CategoryList.cs" />
-    <Compile Include="Collections\CategoryList.DataAccess.cs" />
-    <Compile Include="Collections\CategoryList.Generated.cs" />
-    <Compile Include="Commands\ExistsCommand.cs" />
-    <Compile Include="Criteria\AccountCriteria.cs" />
-    <Compile Include="Criteria\AccountCriteria.Generated.cs" />
-    <Compile Include="Criteria\CategoryCriteria.cs" />
-    <Compile Include="Criteria\CategoryCriteria.Generated.cs" />
-    <Compile Include="Criteria\Interfaces\IGeneratedCriteria.cs" />
     <Compile Include="DataContext.cs" />
+    <Compile Include="Enum\AccountType.cs" />
+    <Compile Include="Modules\Cache\CacheList.cs" />
+    <Compile Include="Modules\DTOListing\AccountList.cs" />
+    <Compile Include="Modules\DTOListing\AccountList.partial.cs" />
+    <Compile Include="Modules\DTO\Account.cs" />
+    <Compile Include="Modules\DTO\Account.partial.cs" />
+    <Compile Include="Modules\TB\Account.cs" />
+    <Compile Include="Modules\TB\Account.partial.cs" />
+    <Compile Include="Modules\TB\AccountList.cs" />
+    <Compile Include="Modules\TB\AccountList.partial.cs" />
+    <Compile Include="Modules\TB\Category.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="Mapping\AccountMap.cs" />
     <Compile Include="Mapping\CategoryMap.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Entity\Account.cs" />
-    <Compile Include="Entity\Account.DataAccess.cs" />
-    <Compile Include="Entity\Account.Generated.cs" />
-    <Compile Include="Entity\Category.cs" />
-    <Compile Include="Entity\Category.DataAccess.cs" />
-    <Compile Include="Entity\Category.Generated.cs" />
+    <Compile Include="Modules\TB\GenAccount.cs" />
+    <Compile Include="Modules\TB\GenAccountList.cs" />
+    <Compile Include="Modules\TB\GenCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\ConnectionHelper.cs" />
-    <Compile Include="Utility\AsyncChildLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -94,11 +96,16 @@
       <Project>{5b3b4848-2a8b-4e80-bba9-65d416132421}</Project>
       <Name>Lemon.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Lemon.Common\Lemon.Common.csproj">
+      <Project>{a06c3492-4252-4417-ab1b-fb1abbb10df8}</Project>
+      <Name>Lemon.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Winterspring.Extensions\Winterspring.Extensions.csproj">
       <Project>{c1b01242-052f-4afa-b08d-eaf4902e6c90}</Project>
       <Name>Winterspring.Extensions</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
